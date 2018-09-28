@@ -35,7 +35,7 @@ class ButtonList extends Component {
 
     const buttonItem = buttonArr.map((val, idx) => {
       return(
-        <Button key = {idx} handleDurationSelection = {this.props.handleDurationSelection} text = {val.text} color = {val.color} LengthCategory = {val.LengthCategory} />
+        <Button key = {idx} text = {val.text} color = {val.color} LengthCategory = {val.LengthCategory} />
       )
     })
     return (

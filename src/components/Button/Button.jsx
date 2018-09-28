@@ -5,8 +5,7 @@ import { ButtonItem } from './Button.styled';
 class Button extends Component {
 
   handleClick = () => {
-    this.props.handleDurationSelection()
-    this.props.context.handleButtonCategory(this.props.LengthCategory);
+    this.props.context.handlePlayVideo(this.props.LengthCategory);
   }
   render() {
     return (

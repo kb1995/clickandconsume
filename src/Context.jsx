@@ -20,8 +20,23 @@ const VideoLibrary = [
 
 class Context extends Component {
   state = {
-    videoURL: "https://www.youtube.com/watch?v=nl2mQ2HiJZc",
+    videoURL: null,
     currentCategory: null,
+    videoPlaying: false,
+  }
+
+  handlePlayVideo = (LengthCategory) => {
+    this.setState({
+      videoPlaying: true,
+    }, this.handleButtonCategory(LengthCategory))
+  }
+
+  handleGoToHome = () => {
+    this.setState({
+      videoPlaying: false,
+      currentCategory: null,
+      videoURL: null,
+    })
   }
 
   handleButtonCategory = (category) => {
@@ -51,6 +66,8 @@ class Context extends Component {
       <MyContext.Provider value={{
         state: this.state,
         handleButtonCategory: this.handleButtonCategory,
+        handleGoToHome: this.handleGoToHome,
+        handlePlayVideo: this.handlePlayVideo,
       }}>
         <App />
       </MyContext.Provider>
