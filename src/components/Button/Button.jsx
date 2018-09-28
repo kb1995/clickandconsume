@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../Context'
-import {ButtonItem} from './Button.styled';
+import { ButtonItem } from './Button.styled';
 
 class Button extends Component {
 
@@ -11,7 +11,7 @@ class Button extends Component {
   render() {
     return (
       <div>
-        <ButtonItem onClick = {this.handleClick}>{this.props.text}</ButtonItem>
+        <ButtonItem color={this.props.color} onClick={this.handleClick}>{this.props.text}</ButtonItem>
       </div>
     );
   }
@@ -19,9 +19,9 @@ class Button extends Component {
 
 const Parent = (props) => {
   return (
-      <MyContext.Consumer>
-          {context => <Button {...props} context={context} />}
-      </MyContext.Consumer>
+    <MyContext.Consumer>
+      {context => <Button {...props} context={context} />}
+    </MyContext.Consumer>
   )
 }
 

@@ -8,23 +8,28 @@ class ButtonList extends Component {
     const buttonArr = [
       {
         text: "<5 mins",
-        color: "#333",
+        color: "#4286f4",
         LengthCategory: 0,
       },
       {
         text: "5-10 mins",
-        color: "#555",
+        color: "#e08626",
         LengthCategory: 1,
       },
       {
         text: "10-15 mins",
-        color: "#EEE",
+        color: "#c12d1d",
         LengthCategory: 2,
       },
       {
         text: "15-20 mins",
-        color: "#BBB",
+        color: "#7817a5",
         LengthCategory: 3,
+      },
+      {
+        text: ">20 mins",
+        color: "#17a541",
+        LengthCategory: 4,
       },
     ]
 
