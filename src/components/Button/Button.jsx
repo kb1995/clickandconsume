@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
-import {} from 'styled-components';
+import { MyContext } from '../../Context'
+import {ButtonItem} from './Button.styled';
 
 class Button extends Component {
+
+  handleClick = () => {
+    this.props.handleDurationSelection()
+    this.props.context.handleButtonCategory(this.props.LengthCategory);
+  }
   render() {
     return (
-      <React.Fragment>
-        <button onClick = {() => {this.props.handleDurationSelection()}}>{this.props.text}</button>
-      </React.Fragment>
+      <div>
+        <ButtonItem onClick = {this.handleClick}>{this.props.text}</ButtonItem>
+      </div>
     );
   }
 }
 
-export default Button;
+const Parent = (props) => {
+  return (
+      <MyContext.Consumer>
+          {context => <Button {...props} context={context} />}
+      </MyContext.Consumer>
+  )
+}
+
+export default Parent;
+
