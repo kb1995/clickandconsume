@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 import App from './App'
+import {VideoLibrary} from './assets/VideoLibrary'
 
 export const MyContext = React.createContext();
-
-const VideoLibrary = [
-  {
-    url: "https://www.youtube.com/watch?v=nl2mQ2HiJZc",
-    LengthCategory: 0,
-  },
-  {
-    url: "https://www.youtube.com/watch?v=mk5Dwg5zm2U",
-    LengthCategory: 0,
-  },
-  {
-    url: "https://www.youtube.com/watch?v=Q3GGdtn9poo",
-    LengthCategory: 1,
-  },
-]
 
 class Context extends Component {
   state = {

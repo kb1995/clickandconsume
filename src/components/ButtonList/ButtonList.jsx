@@ -17,19 +17,14 @@ class ButtonList extends Component {
         LengthCategory: 1,
       },
       {
-        text: "10-15 mins",
-        color: "#c12d1d",
-        LengthCategory: 2,
-      },
-      {
         text: "15-20 mins",
         color: "#7817a5",
-        LengthCategory: 3,
+        LengthCategory: 2,
       },
       {
         text: ">20 mins",
         color: "#17a541",
-        LengthCategory: 4,
+        LengthCategory: 3,
       },
     ]
 
