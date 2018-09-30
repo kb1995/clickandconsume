@@ -21,7 +21,9 @@ const VideoLibrary = [
 class Context extends Component {
   state = {
     videoURL: null,
+    videoIndex: null,
     currentCategory: null,
+    moreVideos: [],
     videoPlaying: false,
   }
 
@@ -45,18 +47,49 @@ class Context extends Component {
     }, this.handleFiltering)
   }
 
+  handlePrevVideo = () => {
+    if (this.state.videoIndex !== 0) {
+      this.setState({
+        videoURL: this.state.moreVideos[this.state.videoIndex - 1].url,
+        videoIndex: this.state.videoIndex - 1,
+      })
+    } else {
+      this.setState({
+        videoURL: this.state.moreVideos[this.state.moreVideos.length - 1].url,
+        videoIndex: this.state.moreVideos.length - 1,
+      })
+    }
+  }
+
+  handleNextVideo = () => {
+    if (this.state.videoIndex !== this.state.moreVideos.length - 1) {
+      this.setState({
+        videoURL: this.state.moreVideos[this.state.videoIndex + 1].url,
+        videoIndex: this.state.videoIndex + 1,
+      })
+    } else {
+      this.setState({
+        videoURL: this.state.moreVideos[0].url,
+        videoIndex: 0,
+      })
+    }
+  }
+
   // helpers
   // ---
   handleFiltering = () => {
     let filteredArray = VideoLibrary.filter(video => video.LengthCategory === this.state.currentCategory)
-    this.handleRandomVideo(filteredArray)
+    this.setState({
+      moreVideos: filteredArray
+    }, this.handleRandomVideo(filteredArray))
   }
 
-  handleRandomVideo = (arr) => {
-    var randomVideo = arr[Math.floor(Math.random() * arr.length)];
-    console.log(randomVideo)
+  handleRandomVideo = (filteredArray) => {
+    var idx = Math.floor(Math.random() * filteredArray.length)
+    var randomVideo = filteredArray[idx];
     this.setState({
-      videoURL: randomVideo.url
+      videoURL: randomVideo.url,
+      videoIndex: idx
     })
   }
   // ---
@@ -68,6 +101,8 @@ class Context extends Component {
         handleButtonCategory: this.handleButtonCategory,
         handleGoToHome: this.handleGoToHome,
         handlePlayVideo: this.handlePlayVideo,
+        handlePrevVideo: this.handlePrevVideo,
+        handleNextVideo: this.handleNextVideo,
       }}>
         <App />
       </MyContext.Provider>

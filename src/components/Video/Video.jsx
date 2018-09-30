@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../Context'
-import { } from './Video.styled'
+import {VideoWrapper} from './Video.styled'
 import ReactPlayer from 'react-player'
 import HomeIcon from '../HomeIcon/HomeIcon'
+import PrevNext from '../PrevNext/PrevNext'
+import $ from 'jquery'
 
 class Video extends Component {
+  
   render() {
     return (
-      <div>
+      <VideoWrapper>
         <ReactPlayer
           url={this.props.context.state.videoURL}
           config={{
@@ -16,12 +19,13 @@ class Video extends Component {
             }
           }}
           width="100vw"
-          height="100vh"
+          height="90vh"
           playing
           controls
         />
         <HomeIcon/>
-      </div>
+        <PrevNext/>
+      </VideoWrapper>
     );
   }
 }

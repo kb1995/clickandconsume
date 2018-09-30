@@ -4,9 +4,16 @@ import { Icon } from './HomeIcon.styled'
 import home from '../../assets/images/home.svg'
 
 class HomeIcon extends Component {
+  state = {
+    idleTimer: null,
+    idleState: false,
+  }
+
   render() {
     return (
-      <Icon onClick={() => {this.props.context.handleGoToHome()}}>
+      <Icon 
+        className={this.state.idleState? 'inactive': null} 
+        onClick={() => { this.props.context.handleGoToHome() }}>
         <img src={home} />
       </Icon>
     );
